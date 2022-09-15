@@ -1,0 +1,243 @@
+body.cards {}
+
+body.pack .preview {
+    display: flex;
+    margin: auto;
+    width: 620px;
+    height: 400px;
+}
+
+body.cards>div:nth-of-type(2) {
+    padding: 80px 20px 20px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+body.cards>div:nth-of-type(2)>div {
+    height: 100%;
+    padding: 0;
+}
+
+body.cards .preview.show {
+    display: block;
+}
+
+body.cards .preview {
+    display: none;
+    transition: 1s;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    height: 100%;
+}
+
+body.cards .preview.flip {
+    transform: rotateY(180deg);
+}
+
+body.cards .preview-card {
+    transform: rotateY(0deg);
+    background: #EEE;
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 1px 2px 20px rgba(255, 255, 255, 1);
+}
+
+body.cards .preview-card.preview-answer {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.preview-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+body.pack .preview-card {
+    flex-basis: 50%;
+    background: #EEE;
+    vertical-align: middle;
+    position: relative;
+    border: 1px solid #333;
+    white-space: normal;
+    margin: 0 5px;
+    word-wrap: break-word;
+    border-radius: 4px;
+}
+
+.preview-footer>*,
+.preview-card>* {
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.preview-answer.preview-card>*:last-child,
+.preview-card>*:first-child {
+    flex-basis: 100%;
+}
+
+.preview-answer.preview-card>*:first-child,
+.preview-card>*:last-child {
+    flex-basis: 40%;
+}
+
+.preview-prompt {
+    background: #FFF;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.preview-footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.preview-response {
+    margin: 5px;
+    background: #09B;
+    color: #fff;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.preview-inner {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    overflow: scroll;
+}
+
+.preview-next,
+.preview-guess {
+    color: #AAA;
+    padding: 10px;
+}
+
+.preview-answer .preview-inner>*:first-child {
+    flex-basis: 2em;
+    color: #AAA;
+}
+
+.preview-answer .preview-inner>*.preview-content {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-answer .preview-prompt .preview-content {
+    font-size: inherit;
+}
+
+.preview-card.True-False .preview-footer {
+    flex-direction: row;
+}
+
+.preview-footer .preview-wrong,
+.preview-footer .preview-right {
+    padding: 10px 20px;
+    color: #FFF;
+    font-size: xx-large;
+}
+
+.preview-footer .preview-wrong,
+.preview-card.True-False .preview-response:nth-child(1) {
+    background: #CC1100;
+}
+
+.preview-footer .preview-right,
+.preview-card.True-False .preview-response:nth-child(2) {
+    background: #11CC11;
+}
+
+.preview-card.True-False .preview-response:nth-child(3),
+.preview-card.True-False .preview-response:nth-child(4) {
+    display: none;
+}
+
+.preview-card.Flash-card .preview-footer,
+.preview-card.True-False .preview-footer {
+    flex-basis: 20%;
+}
+
+.preview-content {
+    font-size: xx-large;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-card .preview-footer form {
+    display: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.preview-card .preview-footer span {
+    display: none;
+    color: #BBB;
+}
+
+.preview-card:not(.preview-answer) .preview-footer a:last-of-type,
+.preview-card:not(.preview-answer) .preview-footer span:last-of-type,
+.preview-card.Flash-card .preview-next,
+.preview-card.Short-answer .preview-response,
+.preview-card.Flash-card .preview-response {
+    display: none;
+}
+
+.preview-card.preview-answer .preview-right,
+.preview-card.preview-answer .preview-wrong,
+.preview-card.preview-answer .preview-guess,
+.preview-card.Flash-card.preview-answer .preview-next {
+    display: none;
+}
+
+.preview-card.Short-answer .preview-footer form {
+    display: block;
+}
+
+.preview-card.Flash-card:not(.preview-answer) .preview-footer a:last-of-type,
+.preview-card.Flash-card:not(.preview-answer) .preview-footer span:last-of-type,
+.preview-card.Flash-card.preview-answer .preview-right,
+.preview-card.Flash-card.preview-answer .preview-wrong,
+.preview-card.Flash-card.preview-answer .preview-guess {
+    display: inline-block;
+}
+
+.preview-card.preview-answer .preview-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="/" target="_self" />
+  <title>Study Sauce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="sauce.css">
+</head>
+
+<body>
+
+<!-- wanted to build for a long time, way to drop bookmarks, but will start with anki file types. for bookmarks need backend to scan, create PDFs, then show nice list with thumbnails. For anki, drop a link or a bigger data set. Dataset should use javascript file api to piece out upload then PUT to node backend for converting into a fancy HTML cardset. including necessary javascript for rebuilding spaced-repition and store answers in local storage, will worry about cloud synchronizing secondarily. Perhaps something like storing chrome data and built in sync methods so I don't have to write a custom backend for syncing between mobile and desktop. something like scanning QR codes? add offline mode to sync, MINIMALISM! automatically convert all avaible card sets scraped from Anki. Send friendly message about convenience and "straight to content"? probably not, wouldn't want to trigger lawsuits, because that's what is important when it comes to education /s -->
+
+<!-- combine: 
+  https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop
+  https://www.appcoda.com/restful-api-tutorial-how-to-upload-files-to-server/
+  https://www.w3schools.com/nodejs/nodejs_uploadfiles.asp
+
+-->
+
+<header><a href="/"><b>Study</b> Sauce</a></header>
+<div class="container">
+  <ol class="decks"><li><a href="Hebrew.html">Hebrew</a></li>
+<li><a href="Arabic.html">Arabic</a></li>
+<li><a href="Real-estate.html">Real-estate</a></li>
+<li><a href="US-Bill-of-rights.html">US Bill-of-rights</a></li>
+<li><a href="US-Presidents.html">US Presidents</a></li></ol></ol>
+</div>
+
+<div class="container">
+  <div id="drop_zone" class="dragdrop">
+    <span>Drop deck here</span>
+  </div>
+</div>
+
+<script type="application/javascript" src="sauce.js"></script>
+</body>
+<script type="application/javascript">
+  document.body.style.backgroundImage = 'url(' + BACKGROUND_NEURAL[Math.floor(Math.random() * BACKGROUND_NEURAL.length)] + ')'
+
+</script>
+</html>

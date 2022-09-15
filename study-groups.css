@@ -1,0 +1,134 @@
+.section-subgroups-link>div>div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body.groups>div:nth-of-type(2)>div {
+    display: flex;
+    margin-top: 60px;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.section-subgroups-link>div>div>*,
+body.groups>div:nth-of-type(2)>div>* {
+    flex-basis: 25%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding: 20px;
+}
+
+.section-subgroups-link>div>div>*>div,
+body.groups>div:nth-of-type(2)>div>*>div {
+    padding: 20px;
+    border: 1px solid #333;
+    position: relative;
+    background: #EEE;
+    text-align: left;
+    border-radius: 1px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 1px 2px 20px rgba(255, 255, 255, 1);
+    border-radius: 4px;
+}
+
+.section-subgroups-link>div>div>*>div>a,
+body.groups>div:nth-of-type(2)>div>*>div>a {
+    flex-basis: 120px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.section-subgroups-link>div>div>*>div>a>img,
+body.groups>div:nth-of-type(2)>div>*>div>a>img {
+    margin: auto;
+    max-height: 100px;
+    width: auto;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.section-subgroups-link>div>div>*>div>div img,
+body.groups>div:nth-of-type(2)>div>*>div>div img {
+    max-height: 120px;
+}
+
+.section-subgroups-link>div>div>*>div>div,
+body.groups>div:nth-of-type(2)>div>*>div>div {
+    width: auto;
+    height: 120px;
+    background: #FFF;
+    white-space: normal;
+    overflow: scroll;
+    padding: 10px;
+    line-height: 140%;
+    border: 1px solid #BBB;
+    border-radius: 2px;
+}
+
+.section-subgroups-link>div>div>*>div>div a,
+body.groups>div:nth-of-type(2)>div>*>div>div a {
+    display: flex;
+}
+
+.section-subgroups-link>div>div>*>div>div a>span,
+body.groups>div:nth-of-type(2)>div>*>div>div a>span {
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+
+.section-subgroups-link>div>div>*>div>div a>span:last-of-type,
+body.groups>div:nth-of-type(2)>div>*>div>div a>span:last-of-type {
+    text-align: right;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+body.group form>div {
+    flex-basis: 50%;
+    padding: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+body.group form>div:nth-last-of-type(even) {
+    padding-left: 160px;
+    margin-left:80px;
+    left: 80px;
+}
+
+body.group form>div:nth-last-of-type(odd) {
+    padding-left: 80px;
+    margin-left:-80px;
+}
+
+body.group form {
+    background: #EEE;
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 1px 2px 20px rgba(255, 255, 255, 1);
+    padding: 20px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+body.group form img {
+    max-height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-top: -100px;
+}
+
+body>.col-1>.section-subgroups-link {
+    padding: 0;
+}

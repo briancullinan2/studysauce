@@ -1,0 +1,26 @@
+{
+  "name": "studysauce",
+  "version": "0.0.1",
+  "scripts": {
+    "generate": "node -e \"require('./index.js').renderIndex()\"",
+    "update": "git add -A && git commit -m \"auto-update\" && git push",
+    "start": "live-server ./docs",
+    "build": "node-gyp rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/briancullinan2/studysauce.git"
+  },
+  "author": "Brian Cullinan",
+  "license": "Unlicense",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "better-sqlite3": "^7.6.2",
+    "d3-node": "^2.2.3",
+    "JSONStream": "^1.3.5",
+    "live-server": "^1.2.2",
+    "moment": "^2.29.4",
+    "node-addon-api": "^5.0.0",
+    "node-gyp": "^9.1.0"
+  }
+}

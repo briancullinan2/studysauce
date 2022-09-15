@@ -1,0 +1,86 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  background: rgb(51, 51, 68);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+}
+
+body {
+  background: url(./neural_network_inverted_darkened.jpeg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+header {
+  font-size: xx-large;
+  text-align: center;
+  padding: 20px
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+.decks {
+  text-align: center;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.decks li {
+  margin: 20px;
+  padding: 0;
+  font-size: large;
+  background: white;
+  border: 3px solid #eee;
+  border-radius: 10px;
+}
+
+.decks li a {
+  padding: 40px;
+  display: block;
+  color: #222;
+  text-decoration: none;
+}
+
+.container {
+  text-align: center;
+  margin: 20px auto;
+  display: flex;
+  width: auto;
+  justify-content: center;
+}
+
+.dragdrop span {
+  pointer-events: none;
+}
+
+.dragdrop {
+  border: 3px dashed #eee;
+  border-radius: 10px;
+  padding: 40px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  min-height: 100px;
+  min-width: 200px;
+}
+
+.dragdrop.dragging {
+  border: 3px solid #eee;
+  border-radius: 10px;
+  padding: 60px;
+}
+

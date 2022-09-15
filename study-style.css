@@ -1,0 +1,130 @@
+body.app>div.col-1:nth-of-type(1) {
+    padding: 0;
+}
+
+body.app>div.col-1:nth-of-type(2) {
+    padding: 100px 60px 60px;
+    background: transparent;
+    text-align: center;
+    color: white;
+}
+
+.section-contact-form,
+.section-landing {
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    background: #EEE;
+    border: 1px solid #333;
+}
+
+.section-contact-form {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    margin-left: -500px;
+    display: none;
+    padding: 50px;
+}
+
+body.contact .section-contact-form {
+    display: block;
+    position: static;
+    margin: 80px auto auto;
+    left: auto;
+}
+
+body.contact .section-footer .section-contact-form {
+    display: none;
+}
+
+.section-landing>.col-2,
+.section-landing>.col-3,
+.section-landing>.col-4,
+body>.col-2,
+body>.col-3,
+body>.col-4 {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+}
+
+.section-landing>.col-2 {
+    align-items: center;
+}
+
+.section-landing>.col-1>*,
+body>.col-1>* {
+    padding: 20px;
+}
+
+body>div:last-of-type,
+body>div:nth-of-type(1).col-1>* {
+    padding: 0;
+}
+
+.section-landing>.col-2>*,
+body>.col-2>* {
+    flex-basis: 50%;
+    padding: 20px;
+}
+
+.section-landing>.col-3>*,
+body>.col-3>* {
+    flex-basis: 33.33%;
+    padding: 20px;
+}
+
+.section-landing>.col-4>*,
+body>.col-4>* {
+    flex-basis: 25%;
+    padding: 20px;
+}
+
+@media all and (max-width: 1400px) {
+    body>div.col-1:nth-of-type(2) {
+        background-size: auto 500px;
+    }
+}
+
+@media all and (max-width: 1000px) {}
+
+@media all and (max-width: 800px) {
+
+    body>.col-2,
+    body>.col-3,
+    body>.col-4 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body>.col-2>*,
+    body>.col-3>*,
+    body>.col-4>* {
+        flex-basis: auto;
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 500px) {
+
+    body.app nav>a:nth-of-type(1) {
+        display: none;
+    }
+
+    body>div {
+        padding: 20px;
+    }
+
+    body>div.col-1:nth-of-type(2) {
+        padding: 120px 20px 50px;
+        background-size: auto 350px;
+        background-position: center 60px;
+    }
+
+    nav>a {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,86 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input:not([type="button"]):not([type="submit"]):not([type="reset"]),
+form label,
+form textarea,
+form select,
+form>* {
+    width: 100%;
+}
+
+select,
+input,
+textarea {
+    padding: 10px;
+    outline: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    position: relative;
+    border: 2px solid transparent;
+    highlight: none;
+    height: 45px;
+    z-index: 1;
+}
+
+label:after {
+    content: " ";
+    display: block;
+    width: auto;
+    height: 2px;
+    border: 1px solid #BBBBBB;
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    left: 50%;
+    right: 50%;
+    visibility: hidden;
+    transition: ease-in-out .15s;
+    transition-property: left, right, bottom;
+    z-index: 2;
+}
+
+select:focus+label:after,
+input:focus+label:after,
+textarea:focus+label:after,
+select:valid+label:after,
+input:valid+label:after,
+textarea:valid+label:after {
+    visibility: visible;
+    left: 2px;
+    right: 2px;
+    bottom: -35px;
+}
+
+label {
+    padding: 15px;
+    font-size: medium;
+    position: relative;
+    top: -45px;
+    transition: ease-in-out .15s;
+    pointer-events: none;
+    z-index: 0;
+    height: 45px;
+    white-space: nowrap;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    margin-bottom: -45px;
+}
+
+select:focus+label,
+input:focus+label,
+textarea:focus+label,
+select:valid+label,
+input:valid+label,
+textarea:valid+label {
+    top: -80px;
+    font-size: small;
+}
+
+.section-contact-form form>div {
+    padding: 20px;
+}

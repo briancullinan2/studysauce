@@ -1,0 +1,59 @@
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: auto;
+    z-index: 901;
+    padding: 0 20px;
+}
+
+nav>a {
+    display: inline-block;
+    padding: 20px;
+    color: #DDD;
+    transition: .15s ease-in-out;
+}
+
+nav>a:hover {
+    background: #09B;
+    color: white;
+}
+
+nav>a+div {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: rgba(0, 0, 0, .8);
+    border-radius: 2px;
+    width: 400px;
+    padding: 20px;
+    color: white;
+}
+
+nav>a+div p:last-of-type {
+    text-align: center;
+}
+
+nav>a+div img {
+    width: 30%;
+    height: auto;
+    float: left;
+    margin: 20px;
+}
+
+nav>a:hover+div,
+nav>a+div:hover {
+    display: block;
+}
+
+body.pack nav>a:nth-of-type(3),
+body.packs nav>a:nth-of-type(3),
+body.groups nav>a:nth-of-type(2),
+body.group nav>a:nth-of-type(2),
+body.home nav>a:nth-of-type(1) {
+    background: #09B;
+    color: white;
+}
