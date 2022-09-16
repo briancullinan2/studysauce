@@ -2,6 +2,7 @@
 const CHUNK_SIZE = 1000
 
 const SAVE_URL = '/fileput'
+const NON_ALPHA_NUM = (/[^a-z0-9-_]/gi)
 
 const BACKGROUND_NEURAL = [
   './neural_brain.jpeg',
@@ -35,20 +36,30 @@ async function uploadFiles(ev) {
   const currentFile = files[0]
   const chunks = currentFile.size / CHUNK_SIZE
   const fileData = new Uint8Array(await currentFile.arrayBuffer())
+  let fileKey
 
   for(let i = 0; i < Math.ceil(chunks); i++) {
     let segmentData = fileData.slice(i * CHUNK_SIZE, i * CHUNK_SIZE + CHUNK_SIZE)
-    debugger
-    await fetch(SAVE_URL, {
+    let putData = {
+      part: i,
+      data: Array.from(segmentData)
+    }
+    if(i == 0) {
+      putData.name = currentFile.name.replace(NON_ALPHA_NUM, '-')
+    } else {
+      putData.key = fileKey
+    }
+    let response = await fetch(SAVE_URL, {
       method: 'PUT',
-      headers:{
+      headers: {
         'Content-Type':'application/json'
       },
-      body: JSON.stringify({
-        part: i,
-        data: Array.from(segmentData)
-      })
+      body: JSON.stringify(putData)
     })
+    if(i == 0) {
+      fileKey = await response.arrayBuffer()
+      debugger
+    }
   }
 }
 

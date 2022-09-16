@@ -1,10 +1,9 @@
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-const { SAVE_URL } = require('./docs/sauce.js')
-
+const { SAVE_URL, NON_ALPHA_NUM } = require('./docs/sauce.js')
 const INDEX = fs.readFileSync('./index.html').toString('utf-8')
-const NON_ALPHA_NUM = (/[^a-z0-9-_]/gi)
+
 // todo: make dynamic
 const STATIC_DECKS = [{
   name: 'Hebrew',
@@ -39,9 +38,28 @@ function randomKey(length = 8) {
   return Math.random().toString(16).substr(2, length);
 }
 
+const RECENT_UPLOADS = {}
+
 function uploadFile(req, res, next) {
-  console.log(req.body)
   // TODO: accept file uploads as minimal example, this took long because the machine is working against me
+  let fileKey
+  if(req.body.part == 0) {
+    fileKey = randomKey(16)
+    RECENT_UPLOADS[fileKey] = req.body.name
+  } else {
+    fileKey = req.body.key
+  }
+
+  // i'd feel bad about looking this stuff up if there wasn't so much nuance everywhere else, is this a sign that programmers are progressively worse the longer they use a specific technology?
+  fs.writeFileSync(RECENT_UPLOADS[fileKey], Buffer.from(req.body.data), { flag: 'a' })
+
+  if(req.body.part == 0) {
+    res.setHeader('content-type', 'text/plain')
+    return res.send(fileKey)
+  } else {
+    res.setHeader('content-type', 'text/plain')
+    return res.send('Ok')
+  }
 
   return next()
 }
@@ -52,8 +70,7 @@ function loadContent(req, res, next) {
     pathname = '/index.html'
   }
   const filename = path.join(__dirname, '/docs/', req.originalUrl)
-  if(pathname == '/index.html'
-    && !fs.existsSync(filename)) {
+  if(pathname == '/index.html' && !fs.existsSync(filename)) {
     renderIndex()
   }
   if(fs.existsSync(filename)) {
