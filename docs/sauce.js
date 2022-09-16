@@ -57,7 +57,8 @@ async function uploadFiles(ev) {
       body: JSON.stringify(putData)
     })
     if(i == 0) {
-      fileKey = await response.arrayBuffer()
+      fileKey = Array.from(new Uint8Array(await response.arrayBuffer()))
+          .map(c => String.fromCharCode(c)).join('')
       debugger
     }
   }
@@ -70,6 +71,7 @@ if(typeof window != 'undefined') {
 
   window.addEventListener('load', function () {
     let dropzone = document.getElementById('drop_zone')
+    let inputfile = document.getElementById('upload_file')
 
     dropzone.addEventListener('dragenter', function () {
       dropzone.classList.add('dragging')
@@ -81,6 +83,15 @@ if(typeof window != 'undefined') {
 
     dropzone.addEventListener('dragover', function (ev) {
       ev.preventDefault()
+    })
+
+    inputfile.addEventListener('change', function (ev) {
+      ev.preventDefault()
+      uploadFiles({
+        dataTransfer: {
+          files: inputfile.files
+        }
+      })
     })
 
     // TODO: not sure when this files but this doesn't appear to work

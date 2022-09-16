@@ -2,7 +2,6 @@
 <html>
 
 <head>
-  <base href="/" target="_self" />
   <title>Study Sauce</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="sauce.css">
@@ -24,13 +23,16 @@
   <ol class="decks"><li><a href="Hebrew.html">Hebrew</a></li>
 <li><a href="Arabic.html">Arabic</a></li>
 <li><a href="Real-estate.html">Real-estate</a></li>
-<li><a href="US-Bill-of-rights.html">US Bill-of-rights</a></li>
-<li><a href="US-Presidents.html">US Presidents</a></li></ol></ol>
+<li><a href="US Bill-of-rights.html">US Bill-of-rights</a></li>
+<li><a href="US Presidents.html">US Presidents</a></li></ol></ol>
 </div>
+
+<!-- TODO: click here to upload a file button not to annoy people on mobile -->
 
 <div class="container">
   <div id="drop_zone" class="dragdrop">
-    <span>Drop deck here</span>
+    <input type="file" id="upload_file" />
+    <label for="upload_file"><span>Drop deck here, <br />or tap to upload file</span></label>
   </div>
 </div>
 

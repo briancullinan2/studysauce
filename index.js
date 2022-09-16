@@ -102,5 +102,6 @@ function startServer() {
 }
 
 module.exports = {
-  startServer
+  startServer,
+  renderIndex,
 }
